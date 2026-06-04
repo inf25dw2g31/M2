@@ -1,56 +1,68 @@
-# My work assignment Title
+# M2 
 
-Repository to host the project developed for 'some class', a n^th^ year subject at SOMESCHOOL. Developed by Group ALPHA : [@MarcoOliveira](https://github.com/marcoamarooliveira), [add others].
+Repositório do trabalho prático **M2** desenvolvido no âmbito da unidade curricular **Desenvolvimento Web II**, do 2º ano do curso de Engenharia Informática da **UMAIA** (ano letivo 2025-26).
 
-## Short theme description
 
-An example report using markdown on Github. This documentation is writen using [Markdown](https://www.markdownguide.org/). Here is a [link to the basic syntax](https://www.markdownguide.org/basic-syntax), but an [extended syntax](https://www.markdownguide.org/extended-syntax/) is also available. If you're starting with Markdown, you may want to try a [Markdown Tutorial](https://www.markdowntutorial.com/) and read the [getting started](https://www.markdownguide.org/getting-started/) section.
+---
 
-## Repository organization
+## Descrição do tema
 
-_Please help reader navigate around describing how the repository is organized by providing links_
-* **Source code** is in the [src folder](src/).
-* Report chapters are in [doc folder](doc/).
-* Initial [OpenApi document](api/openapi.yaml)
 
-## Gallery
 
-_Please provide a galery of the final result, with small images_
-A [table](https://www.markdownguide.org/extended-syntax/#tables) may be usefull to organize the images.
+---
 
-## Technologies
+## Organização do repositório
 
-_Indicate the technologies you have used in this assignment. Please provide links for the user to read more about those technologies._
-* [XML](https://www.w3.org/XML/)
-* [HTML5](https://html.spec.whatwg.org/multipage/) + [CSS3](https://www.w3.org/Style/CSS/)
-* [Javascript](https://developer.mozilla.org/en-US/docs/Learn/JavaScript)
-* [PHP](https://www.php.net/)
-* [nodeJS](https://nodejs.org/en/)
-* _Any other?_
+* O **código-fonte** está na pasta [`src/`](src/).
+* Os **capítulos do relatório** estão na pasta [`doc/`](doc/).
+* A **especificação OpenAPI** é gerada dinamicamente em `http://localhost:3000/swagger.json` a partir dos ficheiro JSON  [`swagger.json/`](Postman/) .
+* A **collection do Postman** está em [`demo.postman_collection.json`](Postman/).
 
-### Frameworks and Libraries
 
-_Did you use any aditional libraries? Describe them here._
-* Docker
-* Multipass
-* NodeJS
-* JQuery
-* Laravel
-* Bootstrap
-* ReactJS
+---
 
-## Report
-_Please add at least on section (a file) per Chapter. But you can add more._
+## Galeria
 
-### Project presentation
-* Chapter 1: [Project presentation](doc/c1.md)
-### Resources
-* Chapter 2: [Resources](doc/c2.md)
-### Product
-* Chapter 3: [Product](doc/c3.md)
-### Presentation
-* Chapter 4: [Presentation](doc/c4.md)
+| | | |
+|:---:|:---:|:---:|
+| ![Login OAuth](doc/images/image01.png) | ![Swagger UI](doc/images/image02.png) | ![Reservas](doc/images/image03.png) |
+| Login via GitHub | Documentação Swagger | Listar reservas |
 
-## Team
-* Marco Amaro Oliveira [@MarcoOliveira](https://github.com/marcoamarooliveira)
-* Other team members
+
+---
+
+## Tecnologias
+
+* [Node.js](https://nodejs.org/) (v20+) — ambiente de execução
+* [Express](https://expressjs.com/) — framework web minimalista
+
+---
+
+### Ferramentas auxiliares
+
+
+---
+
+## Relatório
+
+* Capítulo 1: [Apresentação do projeto](doc/c1.md)
+* Capítulo 2: [Recursos](doc/c2.md)
+* Capítulo 3: [Produto](doc/c3.md)
+* Capítulo 4: [Apresentação](doc/c4.md)
+
+---
+## Imagens Docker no Docker Hub
+
+
+
+---
+
+##  Autores 
+
+| Nome | GitHub |
+|------|--------|
+| **Carlos Miguel Castro** | https://github.com/a046404 |
+| **Marcelo Pinto** | https://github.com/MarceloCostaOBJ |
+| **Rui Morim** | https://github.com/a047906 |
+
+---
