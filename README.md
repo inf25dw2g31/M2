@@ -11,12 +11,10 @@ A aplicação está estruturada em **três camadas** (frontend, API e base de da
 ---
 ## Organização do repositório
 
-* O **código-fonte do frontend (React)** está na pasta [`src/`](src/).
-* O **código-fonte do backend (Node.js + Express)** está na pasta [`backend/`](backend/).
-* O **schema da base de dados** está em [`backend/init.sql`](backend/init.sql).
+* O **código-fonte** está na pasta [`src/`](src/).
 * Os **capítulos do relatório** estão na pasta [`doc/`](doc/).
 * A **configuração do Docker** está nos ficheiros `Dockerfile`, `docker-compose.yml` e `nginx.conf` na raiz.
-* O **template do ficheiro de ambiente** está em [`.env.example`](.env.example).
+
 
 ---
 ## Galeria
@@ -79,10 +77,7 @@ Este comando arranca os 3 serviços:
 * **api** (Node + Express) → `http://localhost:4000`
 * **db** (MySQL 8) → `localhost:3306`
 
-Aceder à aplicação em:
-```
-http://localhost:3000
-```
+
 
 ### Primeira utilização
 
