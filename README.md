@@ -118,11 +118,12 @@ docker compose down -v
 _(links a adicionar)_
 
 ---
-## Autores
+##  Autores 
 
 | Nome | GitHub |
 |------|--------|
+| **Carlos Miguel Castro** | https://github.com/a046404 |
 | **Marcelo Pinto** | https://github.com/MarceloCostaOBJ |
-| **[Nome do colega]** | https://github.com/[username] |
+| **Rui Morim** | https://github.com/a047906 |
 
 ---
