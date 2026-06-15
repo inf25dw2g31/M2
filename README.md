@@ -109,12 +109,13 @@ docker compose down -v
 ---
 ## Imagens Docker no Docker Hub
 
-* `[username]/festivall-web:latest` — frontend React + Nginx
-* `[username]/festivall-api:latest` — backend Node.js + Express
-
-_(links a adicionar)_
+* [`a046363/inf25dw2g31-m2-react`](https://hub.docker.com/r/a046363/inf25dw2g31-m2-react) — frontend React + Nginx
+* [`a046363/inf25dw2g31-m2`](https://hub.docker.com/r/a046363/inf25dw2g31-m2) — backend Node.js + Express
+* [`a046363/inf25dw2g31-m2-mysql`](https://hub.docker.com/r/a046363/inf25dw2g31-m2-mysql) — base de dados MySQL com schema
 
 ---
+
+
 ##  Autores 
 
 | Nome | GitHub |
