@@ -494,6 +494,7 @@ input[type="date"]::-webkit-datetime-edit {
 
 .artist-card h3,
 .artist-card a {
+  color: #ffffff;
   margin: 0 18px;
 }
 
