@@ -68,8 +68,10 @@ A aplicação está estruturada em **três camadas** (frontend, API e base de da
 
 Na raiz do projeto:
 
+
+Executar:
 ```bash
-docker compose up --build
+festivall.bat
 ```
 
 Este comando arranca os 3 serviços:
@@ -89,11 +91,6 @@ http://localhost:3000
 3. Preencher username, password e Consumer Key da Ticketmaster
 4. Submeter — a app cria a conta e faz login automaticamente
 
-### Para parar
-
-```bash
-docker compose down
-```
 
 Para apagar também os dados da base de dados:
 
