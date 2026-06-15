@@ -4,16 +4,18 @@ Repositório do trabalho prático **M2** desenvolvido no âmbito da unidade curr
 ---
 ## Descrição do tema
 
-**FestivAll** é uma Aplicação Web Cliente desenvolvida em **ReactJS** que consome a **Ticketmaster Discovery API** para disponibilizar uma plataforma de pesquisa e descoberta de eventos culturais e desportivos. A aplicação permite ao utilizador autenticar-se com uma Consumer Key da Ticketmaster, pesquisar eventos por palavra-chave, cidade, data e categoria, consultar detalhes de eventos e artistas, e guardar favoritos com persistência local.
+**FestivAll** é uma Aplicação Web fullstack desenvolvida em **ReactJS** que permite descobrir e organizar eventos culturais e desportivos. A app consome a **Ticketmaster Discovery API** para obter dados de eventos em tempo real, e dispõe de um **backend próprio em Node.js + Express + MySQL** que gere a autenticação JWT dos utilizadores e persiste os seus dados pessoais (favoritos, histórico, listas, avaliações e pesquisas guardadas).
 
-A aplicação é totalmente containerizada com **Docker** (build multistage Node + Nginx) e foi construída com **Vite**, **Material UI**, **React Router** e **Framer Motion**.
+A aplicação está estruturada em **três camadas** (frontend, API e base de dados) orquestradas com **Docker Compose**, permitindo a execução completa do sistema com um único comando.
 
 ---
 ## Organização do repositório
 
-* O **código-fonte** está na pasta [`src/`](src/).
+* O **código-fonte do frontend (React)** está na pasta [`src/`](src/).
+* O **código-fonte do backend (Node.js + Express)** está na pasta [`backend/`](backend/).
+* O **schema da base de dados** está em [`backend/init.sql`](backend/init.sql).
 * Os **capítulos do relatório** estão na pasta [`doc/`](doc/).
-* O **Dockerfile**, **docker-compose.yml** e **nginx.conf** estão na raiz do repositório.
+* A **configuração do Docker** está nos ficheiros `Dockerfile`, `docker-compose.yml` e `nginx.conf` na raiz.
 * O **template do ficheiro de ambiente** está em [`.env.example`](.env.example).
 
 ---
@@ -22,24 +24,35 @@ A aplicação é totalmente containerizada com **Docker** (build multistage Node
 | | | |
 |:---:|:---:|:---:|
 | ![Login](doc/images/image01.png) | ![Dashboard](doc/images/image02.png) | ![Eventos](doc/images/image03.png) |
-| Login com Consumer Key | Dashboard com eventos | Pesquisa de eventos |
+| Login com MUI + Framer Motion | Dashboard com eventos | Pesquisa de eventos |
 
 ---
 ## Tecnologias
 
+### Frontend
 * [React](https://react.dev/) (v18) — biblioteca para interfaces de utilizador
 * [Vite](https://vitejs.dev/) (v5) — build tool e dev server
 * [React Router](https://reactrouter.com/) (v6) — navegação SPA
 * [Material UI](https://mui.com/) (v5) — biblioteca de componentes
 * [Framer Motion](https://www.framer.com/motion/) (v11) — animações declarativas
-* [Docker](https://www.docker.com/) — containerização
-* [Nginx](https://nginx.org/) (Alpine) — servidor web em produção
+
+### Backend
+* [Node.js](https://nodejs.org/) (v20) — runtime JavaScript
+* [Express](https://expressjs.com/) (v4) — framework HTTP
+* [MySQL](https://www.mysql.com/) (v8) — base de dados relacional
+* [jsonwebtoken](https://github.com/auth0/node-jsonwebtoken) — autenticação JWT
+* [bcryptjs](https://github.com/dcodeIO/bcrypt.js) — hash de passwords
+* [express-rate-limit](https://github.com/express-rate-limit/express-rate-limit) — proteção contra abuso
 
 ### API consumida
 * [Ticketmaster Discovery API v2](https://developer.ticketmaster.com/) — eventos culturais e desportivos
 
+### Infraestrutura
+* [Docker](https://www.docker.com/) — containerização
+* [Docker Compose](https://docs.docker.com/compose/) — orquestração multi-container
+* [Nginx](https://nginx.org/) (Alpine) — servidor web em produção
+
 ### Ferramentas auxiliares
-* [Node.js](https://nodejs.org/) (v20+) — ambiente de execução para o build
 * [GitHub](https://github.com/) — controlo de versões
 * [DockerHub](https://hub.docker.com/) — distribuição da imagem
 * [Visual Studio Code](https://code.visualstudio.com/) — editor
@@ -48,26 +61,44 @@ A aplicação é totalmente containerizada com **Docker** (build multistage Node
 ## Como executar
 
 ### Pré-requisitos
-* Conta no [portal de developers da Ticketmaster](https://developer.ticketmaster.com/) para obter Consumer Key
-* Docker e Docker Compose instalados (ou Node.js 20+ para execução local)
+* **Docker** e **Docker Compose** instalados
+* Conta no [portal de developers da Ticketmaster](https://developer.ticketmaster.com/) para obter Consumer Key gratuita
 
-### Configuração
-Criar ficheiro `.env` na raiz a partir do `.env.example`:
-```
-VITE_TM_API_KEY=a_tua_consumer_key
-```
+### Execução
 
-### Execução com Docker
+Na raiz do projeto:
+
 ```bash
 docker compose up --build
-# Aceder em http://localhost:3000
 ```
 
-### Execução local
+Este comando arranca os 3 serviços:
+* **web** (React + Nginx) → `http://localhost:3000`
+* **api** (Node + Express) → `http://localhost:4000`
+* **db** (MySQL 8) → `localhost:3306`
+
+Aceder à aplicação em:
+```
+http://localhost:3000
+```
+
+### Primeira utilização
+
+1. Aceder a `http://localhost:3000`
+2. Clicar em "Registar"
+3. Preencher username, password e Consumer Key da Ticketmaster
+4. Submeter — a app cria a conta e faz login automaticamente
+
+### Para parar
+
 ```bash
-npm install
-npm run dev
-# Aceder em http://localhost:5173
+docker compose down
+```
+
+Para apagar também os dados da base de dados:
+
+```bash
+docker compose down -v
 ```
 
 ---
@@ -81,7 +112,10 @@ npm run dev
 ---
 ## Imagens Docker no Docker Hub
 
-* `[username]/festivall:latest` — [link a adicionar]
+* `[username]/festivall-web:latest` — frontend React + Nginx
+* `[username]/festivall-api:latest` — backend Node.js + Express
+
+_(links a adicionar)_
 
 ---
 ## Autores
